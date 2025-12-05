@@ -1,4 +1,8 @@
+// Load environment variables silently 
+const originalConsoleLog = console.log;
+console.log = () => {}; // Temporarily disable console.log
 require('dotenv').config();
+console.log = originalConsoleLog; // Restore console.log
 const express = require('express');                      // Import the Express library to create the server and handle routing
 const cors = require('cors');                            // Import the CORS middleware to allow cross-origin requests
 const mongoose = require('mongoose');                    // Import Mongoose to interact with MongoDB
