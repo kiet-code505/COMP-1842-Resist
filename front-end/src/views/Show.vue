@@ -43,7 +43,7 @@ export default {
 
     async mounted() {                                                            // Lifecycle hook called when the component is mounted
         this.word = await api.getWord(this.$route.params.id);                   // Fetch the word from the API using the route's ID parameter
-        //console.log(this.$route.params.id);                                   // Debug: uncomment to log the ID
+        console.log(this.$route.params.id);                                   // Debug: uncomment to log the ID
     }
 };
 </script>
