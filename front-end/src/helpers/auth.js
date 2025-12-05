@@ -1,11 +1,9 @@
 
 const TOKEN_KEY = 'auth_token';
 const USER_KEY = 'user_data';
-//  tại sao lại dùng const TOKEN_KEY = 'auth_token'; const USER_KEY = 'user_data';
-
 
 export const saveToken = (token) => {
-    localStorage.setItem(TOKEN_KEY, token);//có tác dụng gì 
+    localStorage.setItem(TOKEN_KEY, token);
 };
 // localStorage
 export const getToken = () => {
