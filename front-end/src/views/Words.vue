@@ -53,7 +53,7 @@ export default {
     }, 
     async mounted() {                                                               // Lifecycle hook: runs after the component is mounted
         this.words = await api.getWords();                                          // Fetch all words from the API
-        //console.log(this.words);                                                  // Debug: log fetched data
+        console.log(this.words);                                                  // Debug: log fetched data
     }
 };
 </script>
