@@ -24,7 +24,7 @@ const router = new Router({
             path: '/words',        // Path for listing all words
             name: 'words',         // Name of the route
             component: Words,      // Component to load for this route
-            meta: { requiresAuth: true } // Requires authentication
+            meta: { requiresAuth: false } // Requires authentication
         },
 
         {
