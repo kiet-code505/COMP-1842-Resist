@@ -9,7 +9,7 @@ const generateToken = (userId) => {
 };
 
 exports.register = async (req, res) => {
-    const { email, username } = req.body;
+    const { email, username, fullName } = req.body;
 
     try {
         const existingUser = await User.findOne({ $or: [{ email }, { username }] });
@@ -29,10 +29,16 @@ exports.register = async (req, res) => {
             }
         }
 
-        const salt = await bcrypt.genSalt(10);// Generate salt for hashing password 10 ký tự
-        const hashedPassword = await bcrypt.hash(req.body.password, salt);// Hash the password using bcrypt
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
-        const userData = { ...req.body, password: hashedPassword };
+        const userData = {
+        fullName: fullName.trim(),
+        email,
+        username,
+        password: hashedPassword
+        };
+        
         const newUser = new User(userData);
         const user = await newUser.save();
         
